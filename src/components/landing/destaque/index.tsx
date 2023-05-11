@@ -5,7 +5,7 @@ import principal from "../../../../public/principal.jpg";
 
 export default function Destaque() {
     return (
-        <Area>
+        <Area className="flex-1">
             <div className={`
                 flex items-center justify-around
                 h-[500px]`}>
