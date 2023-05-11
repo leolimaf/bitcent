@@ -1,5 +1,6 @@
+import usuario from "@/data/constants/UsuarioFalso"
+
 export default function InfoUsuario() {
-    const usuario = { nome: 'Leonardo', email: 'leonardo@email.com'};
 
     return (
         <div className='flex items-center gap-3 cursor-pointer'>

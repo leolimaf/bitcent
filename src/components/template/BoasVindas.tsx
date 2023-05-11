@@ -1,8 +1,8 @@
 // https://unicode-table.com/en/1F44B/
 
-export default function BoasVindas() {
-    const usuario = {nome: 'Leonardo'}
+import usuario from "@/data/constants/UsuarioFalso"
 
+export default function BoasVindas() {
     return (
         <div className={`text-3xl font-black`}>
             Olá{' '}
