@@ -1,6 +1,5 @@
 import Pagina from "../template/Pagina";
 import Cabecalho from "./cabecalho";
-import Logo from "./comum/Logo";
 import Destaque from "./destaque";
 import Rodape from "./rodape";
 
