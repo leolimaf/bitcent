@@ -6,6 +6,7 @@ import { useState } from "react";
 import Transacao from "@/logic/core/financas/Transacao";
 import Lista from "./Lista";
 import Sumario from "./Sumario";
+import Formulario from "./Formulario";
 
 export default function Financas() {
     const [transacoes, setTransacoes] = useState<Transacao[]>(transacoesFalsas)
@@ -16,6 +17,7 @@ export default function Financas() {
             <Conteudo className="gap-5">
                 <Sumario transacoes={transacoes} />
                 <Lista transacoes={transacoes} />
+                <Formulario transacao={transacoes[1]} />
             </Conteudo>
         </Pagina>
         )
