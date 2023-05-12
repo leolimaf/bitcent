@@ -27,13 +27,13 @@ export default function Lista(props: ListaProps) {
     function renderizarLinha(transacao: Transacao, indice: number){
         return (
             <div key={transacao.id} className={`
-                flex items-center gap-3 p-3
+                flex items-center gap-3 p-3 cursor-pointer
                 ${indice % 2 === 0 ? 'bg-zinc-900' : 'bg-zinc-800'}
-            `}>
+            `} onClick={() => props.selecionarTransacao?.(transacao)}>
                 {renderizarTipo(transacao)}
-                <span className="w-1/2">{transacao.descricao}</span>
-                <span className="flex-1">{Data.ddmmyy.formatar(transacao.data)}</span>
-                <span>{Dinheiro.formatar(transacao.valor)}</span>
+                <span className="w-full md:w-1/2">{transacao.descricao}</span>
+                <span className="hidden md:inline flex-1">{Data.ddmmyy.formatar(transacao.data)}</span>
+                <span className="text-rigth">{Dinheiro.formatar(transacao.valor)}</span>
             </div>
         )
     }
