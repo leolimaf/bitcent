@@ -5,6 +5,7 @@ import Pagina from "../template/Pagina";
 import { useState } from "react";
 import Transacao from "@/logic/core/financas/Transacao";
 import Lista from "./Lista";
+import Sumario from "./Sumario";
 
 export default function Financas() {
     const [transacoes, setTransacoes] = useState<Transacao[]>(transacoesFalsas)
@@ -12,7 +13,8 @@ export default function Financas() {
     return (
         <Pagina>
             <Cabecalho />
-            <Conteudo>
+            <Conteudo className="gap-5">
+                <Sumario transacoes={transacoes} />
                 <Lista transacoes={transacoes} />
             </Conteudo>
         </Pagina>
