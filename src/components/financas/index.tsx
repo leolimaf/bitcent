@@ -6,7 +6,7 @@ import Lista from "./Lista";
 import Sumario from "./Sumario";
 import Formulario from "./Formulario";
 import { IconPlus } from "@tabler/icons-react";
-import useTrasacoes from "@/data/hooks/useFinancas";
+import useTrasacoes from "@/data/hooks/useTransacoes";
 import NaoEncontrado from "../template/NaoEncontrado";
 
 export default function Financas() {

@@ -1,6 +1,6 @@
-import Usuario from "@/logic/core/usuario/Usuario"
-import AutenticacaoFirebase from "@/logic/firebase/auth/Autenticacao"
-import { createContext, useEffect, useState } from "react"
+import servicos from '@/logic/core'
+import Usuario from '@/logic/core/usuario/Usuario'
+import { createContext, useEffect, useState } from 'react'
 
 interface Autenticacao {
     carregando: boolean
@@ -18,32 +18,31 @@ const AutenticacaoContext = createContext<Autenticacao>({
 
 export default AutenticacaoContext
 
-export function AutenticacaoProvider(props: any){
-    const autenticacao = new AutenticacaoFirebase()
-
+export function AutenticacaoProvider(props: any) {
+    
     const [carregando, setCarregando] = useState<boolean>(true)
     const [usuario, setUsuario] = useState<Usuario | null>(null)
 
     useEffect(() => {
-        const cancelar = autenticacao.monitorar(function (usuario){
+        const cancelar = servicos.autenticacao.monitorar(function (usuario) {
             setUsuario(usuario)
             setCarregando(false)
         })
         return () => cancelar()
     }, [])
 
-    async function loginGoogle(): Promise<Usuario | null>{
-        const usuario = await autenticacao.loginGoogle()
+    async function loginGoogle(): Promise<Usuario | null> {
+        const usuario = await servicos.autenticacao.loginGoogle()
         setUsuario(usuario)
         return usuario
     }
-
+    
     async function logout(): Promise<void> {
-        await autenticacao.logout()
+        await servicos.autenticacao.logout()
         setUsuario(null)
     }
 
-    return(
+    return (
         <AutenticacaoContext.Provider value={{
             carregando,
             usuario,
