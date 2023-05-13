@@ -1,8 +1,12 @@
 // https://unicode-table.com/en/1F44B/
 
-import usuario from "@/data/constants/UsuarioFalso"
+import AutenticacaoContext from "@/data/contexts/AutenticacaoContext"
+import { useContext } from "react"
 
 export default function BoasVindas() {
+
+    const { usuario } = useContext(AutenticacaoContext)
+
     return (
         <div className={`text-3xl font-black`}>
             Olá{' '}
